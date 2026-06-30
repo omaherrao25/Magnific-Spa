@@ -35,47 +35,47 @@ export default function Services() {
   const cardsRef = useStaggerReveal({ y: 40, stagger: 0.15 });
 
   return (
-    <section id="treatments" className="py-24 px-6 relative overflow-hidden text-[#1A1A1A]">
+    <section id="treatments" className="py-16 sm:py-20 md:py-24 px-5 sm:px-6 relative overflow-hidden text-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header Section */}
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-16 relative">
+        <div ref={headerRef} className="flex flex-col items-center text-center mb-10 sm:mb-16 relative">
           <span className="text-sm font-semibold tracking-wide text-[#1A1A1A]/80 mb-2">
             Come & Explore
           </span>
-          <h2 className="text-5xl sm:text-6xl md:text-[75px] text-[#4A6E53] font-light mb-6 uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[75px] text-[#4A6E53] font-light mb-4 sm:mb-6 uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
             Massage & Treatments
           </h2>
 
           <div className="w-full relative flex items-center justify-center">
-            <p className="text-sm md:text-base text-[#1A1A1A]/70 leading-relaxed font-medium max-w-xl mx-auto">
+            <p className="text-sm md:text-base text-[#1A1A1A]/70 leading-relaxed font-medium max-w-xl mx-auto px-2">
               Immerse yourself in our exclusive collection of holistic therapies, designed to melt away stress and rejuvenate your body. Experience the ultimate harmony of relaxation and healing.
             </p>
 
             {/* Arrows for Desktop */}
             <div className="hidden md:flex items-center gap-4 absolute right-0 top-1/2 -translate-y-1/2">
-              <button className="p-2 hover:bg-[#4A6E53]/10 rounded-full transition-colors group">
+              <button className="p-2 hover:bg-[#4A6E53]/10 rounded-full transition-colors group min-w-[44px] min-h-[44px] flex items-center justify-center">
                 <ArrowLeft strokeWidth={1} className="w-8 h-8 text-[#1A1A1A] group-hover:text-[#4A6E53]" />
               </button>
-              <button className="p-2 hover:bg-[#4A6E53]/10 rounded-full transition-colors group">
+              <button className="p-2 hover:bg-[#4A6E53]/10 rounded-full transition-colors group min-w-[44px] min-h-[44px] flex items-center justify-center">
                 <ArrowRight strokeWidth={1} className="w-8 h-8 text-[#1A1A1A] group-hover:text-[#4A6E53]" />
               </button>
             </div>
           </div>
 
           {/* Arrows for Mobile */}
-          <div className="flex md:hidden items-center gap-4 mt-6">
-            <button className="p-2 hover:bg-[#4A6E53]/10 rounded-full transition-colors group">
+          <div className="flex md:hidden items-center gap-4 mt-4 sm:mt-6">
+            <button className="p-3 hover:bg-[#4A6E53]/10 active:bg-[#4A6E53]/20 rounded-full transition-colors group min-w-[48px] min-h-[48px] flex items-center justify-center">
               <ArrowLeft strokeWidth={1} className="w-6 h-6 text-[#1A1A1A] group-hover:text-[#4A6E53]" />
             </button>
-            <button className="p-2 hover:bg-[#4A6E53]/10 rounded-full transition-colors group">
+            <button className="p-3 hover:bg-[#4A6E53]/10 active:bg-[#4A6E53]/20 rounded-full transition-colors group min-w-[48px] min-h-[48px] flex items-center justify-center">
               <ArrowRight strokeWidth={1} className="w-6 h-6 text-[#1A1A1A] group-hover:text-[#4A6E53]" />
             </button>
           </div>
         </div>
 
-        {/* Cards Grid / Flex */}
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        {/* Cards Grid */}
+        <div ref={cardsRef} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-6">
           {treatments.map((item) => (
             <motion.div
               key={item.id}
@@ -84,21 +84,22 @@ export default function Services() {
               transition={{ duration: 0.3 }}
             >
               <div
-                className="w-full aspect-square overflow-hidden mb-6 shadow-sm border border-[#1A1A1A]/5"
-                style={{ borderRadius: '80px 16px 80px 16px' }}
+                className="w-full aspect-square overflow-hidden mb-4 sm:mb-6 shadow-sm border border-[#1A1A1A]/5"
+                style={{ borderRadius: '50px 12px 50px 12px' }}
               >
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
 
-              <h3 className="text-3xl text-[#1A1A1A] mb-3 tracking-wider group-hover:text-[#4A6E53] transition-colors" style={{ fontFamily: 'var(--font-heading)' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl text-[#1A1A1A] mb-1 sm:mb-3 tracking-wider group-hover:text-[#4A6E53] transition-colors text-center" style={{ fontFamily: 'var(--font-heading)' }}>
                 {item.title}
               </h3>
 
-              <p className="text-sm font-semibold text-[#1A1A1A]/80 tracking-wide">
+              <p className="text-xs sm:text-sm font-semibold text-[#1A1A1A]/80 tracking-wide">
                 {item.price}
               </p>
             </motion.div>

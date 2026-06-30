@@ -27,6 +27,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: var(--gold) var(--bg-primary);
   }
@@ -40,6 +41,16 @@
   html::-webkit-scrollbar-thumb {
     background: var(--gold);
     border-radius: 3px;
+  }
+
+  /* Hide scrollbar on mobile for cleaner UX */
+  @media (max-width: 768px) {
+    html {
+      scrollbar-width: none;
+    }
+    html::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   body {
@@ -71,6 +82,13 @@
   ::selection {
     background-color: var(--gold);
     color: var(--bg-primary);
+  }
+
+  /* Ensure all tap targets are comfortable */
+  @media (max-width: 768px) {
+    button, a, input, select, textarea {
+      -webkit-tap-highlight-color: transparent;
+    }
   }
 }
 
@@ -107,7 +125,19 @@
 
   @media (max-width: 768px) {
     .section-padding {
-      padding: 80px 16px;
+      padding: 80px 20px;
+    }
+  }
+
+  @media (max-width: 414px) {
+    .section-padding {
+      padding: 64px 20px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .section-padding {
+      padding: 56px 16px;
     }
   }
 
@@ -143,6 +173,24 @@
     }
   }
 
+  /* Reduce particle animation on mobile for perf */
+  @media (max-width: 768px) {
+    .particle {
+      animation: float-particle-mobile 10s infinite ease-in-out;
+    }
+
+    @keyframes float-particle-mobile {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        opacity: 0.1;
+        transform: translateY(-50px) translateX(10px);
+      }
+    }
+  }
+
   .glow-cursor {
     position: fixed;
     width: 300px;
@@ -159,6 +207,32 @@
   @keyframes scroll-bounce {
     0%, 100% { transform: translateY(0); opacity: 1; }
     50% { transform: translateY(10px); opacity: 0.3; }
+  }
+
+  /* Body scroll lock for mobile menu */
+  .body-scroll-locked {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    touch-action: none;
+  }
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .particle {
+    display: none;
+  }
+
+  .glow-cursor {
+    display: none;
   }
 }
 

@@ -17,24 +17,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white relative pt-20 pb-8 text-[#1A1A1A]">
+    <footer className="bg-white relative pt-16 sm:pt-20 pb-8 text-[#1A1A1A]">
       {/* Wavy Separator */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none -translate-y-[99%]">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[60px] md:h-[100px]">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[40px] sm:h-[60px] md:h-[100px]">
           <path fill="white" d="M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,117.3C672,117,768,171,864,186.7C960,203,1056,181,1152,149.3C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid md:grid-cols-3 gap-16 mb-16">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12 md:gap-16 mb-12 sm:mb-16">
           {/* Column 1: Brand & App */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             {/* Original Logo */}
-            <div className="mb-8 w-32 h-32 flex items-center justify-center">
-              <img src="/Magnific Spa logo.jpg" alt="Magnific Spa" className="w-full h-full object-contain rounded-full" />
+            <div className="mb-6 sm:mb-8 w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center">
+              <img src="/Magnific Spa logo.jpg" alt="Magnific Spa" className="w-full h-full object-contain rounded-full" loading="lazy" />
             </div>
 
-            <p className="text-[13px] font-bold text-[#1A1A1A]/80 leading-relaxed mb-8 max-w-[280px]">
+            <p className="text-[13px] font-bold text-[#1A1A1A]/80 leading-relaxed mb-8 max-w-[280px] text-center md:text-left">
               Experience ultimate relaxation and rejuvenation at Magnific Spa. We offer a wide range of luxurious treatments designed to soothe your mind, body, and soul in a tranquil environment.
             </p>
 
@@ -42,19 +42,19 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Contact */}
-          <div className="pt-2">
-            <h4 className="text-[36px] text-[#1A1A1A] mb-8 uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="pt-0 md:pt-2 text-center md:text-left">
+            <h4 className="text-[30px] sm:text-[36px] text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
               Contact Us
             </h4>
-            <div className="space-y-4 text-sm mb-12">
+            <div className="space-y-3 sm:space-y-4 text-sm mb-8 sm:mb-12">
               <p className="font-semibold text-[#1A1A1A]/90 leading-relaxed"><span className="font-extrabold text-[#1A1A1A]">Address:</span> Rua Quatrocentos, quadra 05, n 37, Jardim Imperial, Cuiabá, Brazil 78975670</p>
               <p className="font-semibold text-[#1A1A1A]/90"><span className="font-extrabold text-[#1A1A1A]">Email:</span> info@examples.com</p>
               <p className="font-semibold text-[#1A1A1A]/90"><span className="font-extrabold text-[#1A1A1A]">Phone:</span> +000 123 456789</p>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 justify-center md:justify-start">
               {['linkedin', 'facebook', 'instagram'].map((type) => (
-                <a key={type} href="#" className="w-9 h-9 rounded-full border-[1.5px] border-gray-400 flex items-center justify-center text-[#1A1A1A] hover:bg-[#4A6E53] hover:text-white hover:border-[#4A6E53] transition-all">
+                <a key={type} href="#" className="w-11 h-11 sm:w-9 sm:h-9 rounded-full border-[1.5px] border-gray-400 flex items-center justify-center text-[#1A1A1A] hover:bg-[#4A6E53] hover:text-white hover:border-[#4A6E53] active:scale-90 transition-all min-w-[44px] min-h-[44px]">
                   <SocialIcon type={type} />
                 </a>
               ))}
@@ -62,28 +62,28 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Newsletter */}
-          <div className="pt-2">
-            <h4 className="text-[36px] text-[#1A1A1A] mb-6 uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="pt-0 md:pt-2 text-center md:text-left">
+            <h4 className="text-[30px] sm:text-[36px] text-[#1A1A1A] mb-4 sm:mb-6 uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
               Join Our Newsletter
             </h4>
             <div className="relative mb-3">
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full h-12 rounded-full border border-gray-300 px-6 outline-none focus:border-[#4A6E53] bg-transparent font-bold placeholder-gray-500 text-sm"
+                className="w-full h-12 sm:h-12 rounded-full border border-gray-300 px-5 sm:px-6 pr-28 sm:pr-32 outline-none focus:border-[#4A6E53] bg-transparent font-bold placeholder-gray-500 text-sm"
               />
-              <button className="absolute right-0 top-0 bottom-0 px-8 bg-black text-white rounded-full font-bold text-xs tracking-wide hover:bg-gray-800 transition-colors">
+              <button className="absolute right-0 top-0 bottom-0 px-5 sm:px-8 bg-black text-white rounded-full font-bold text-xs tracking-wide hover:bg-gray-800 active:scale-95 transition-all min-h-[44px]">
                 Subscribe
               </button>
             </div>
-            <p className="text-[11px] font-extrabold text-[#1A1A1A]/80 mb-12 uppercase tracking-wide">
+            <p className="text-[11px] font-extrabold text-[#1A1A1A]/80 mb-8 sm:mb-12 uppercase tracking-wide">
               We Won't Spam. We Hate It More Than You Do.
             </p>
 
-            <h4 className="text-[30px] text-[#1A1A1A] mb-5 uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h4 className="text-[24px] sm:text-[30px] text-[#1A1A1A] mb-4 sm:mb-5 uppercase tracking-widest" style={{ fontFamily: 'var(--font-heading)' }}>
               Accepted Payments:
             </h4>
-            <div className="flex flex-wrap gap-2 items-center">
+            <div className="flex flex-wrap gap-2 items-center justify-center md:justify-start">
               <div className="px-3 py-1 bg-gray-100 rounded text-[11px] font-bold text-gray-500 italic">Payoneer</div>
               <div className="px-3 py-1 bg-gray-100 rounded text-[11px] font-bold text-gray-500">amazon pay</div>
               <div className="px-3 py-1 bg-gray-100 rounded text-[11px] font-bold text-gray-500 italic text-purple-900">Skrill</div>
@@ -93,14 +93,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-bold text-[#1A1A1A]">
+        <div className="border-t border-gray-200 pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs font-bold text-[#1A1A1A] text-center md:text-left">
           <p>
             All Right Reserved © {new Date().getFullYear()} WeDesignTech
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-[#4A6E53] transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-[#4A6E53] transition-colors py-1 min-h-[44px] flex items-center">Privacy Policy</a>
             <span className="text-gray-300">|</span>
-            <a href="#" className="hover:text-[#4A6E53] transition-colors">Cookie Policy</a>
+            <a href="#" className="hover:text-[#4A6E53] transition-colors py-1 min-h-[44px] flex items-center">Cookie Policy</a>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function Footer() {
       {/* Scroll to Top */}
       <button
         onClick={scrollToTop}
-        className="absolute bottom-6 right-6 w-10 h-10 rounded-full bg-[#829D85] text-white flex items-center justify-center hover:bg-[#4A6E53] transition-colors shadow-md z-50"
+        className="absolute bottom-20 sm:bottom-6 right-6 w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] rounded-full bg-[#829D85] text-white flex items-center justify-center hover:bg-[#4A6E53] active:scale-90 transition-all shadow-md z-50"
         aria-label="Scroll to top"
       >
         <ArrowUp size={20} />

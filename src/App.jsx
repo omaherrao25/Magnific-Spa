@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
@@ -22,10 +22,10 @@ function WhatsAppFloat() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 3, duration: 0.5, type: 'spring' }}
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full
+      className="fixed bottom-6 right-6 z-40 w-14 h-14 min-w-[48px] min-h-[48px] rounded-full
                  bg-green-500 hover:bg-green-600 flex items-center justify-center
                  shadow-[0_4px_25px_rgba(34,197,94,0.4)] hover:shadow-[0_4px_35px_rgba(34,197,94,0.5)]
-                 transition-all duration-300 hover:scale-110"
+                 transition-all duration-300 hover:scale-110 active:scale-95"
       aria-label="Chat on WhatsApp"
       id="whatsapp-float"
     >
@@ -38,6 +38,14 @@ function WhatsAppFloat() {
 
 export default function App() {
   const glowPos = useMouseGlow();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile, { passive: true });
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Smooth scroll for anchor links
@@ -56,12 +64,14 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative">
-      {/* Global mouse glow */}
-      <div
-        className="glow-cursor hidden lg:block"
-        style={{ left: glowPos.x, top: glowPos.y }}
-      />
+    <div className="relative overflow-x-hidden">
+      {/* Global mouse glow — only rendered on desktop */}
+      {!isMobile && (
+        <div
+          className="glow-cursor hidden lg:block"
+          style={{ left: glowPos.x, top: glowPos.y }}
+        />
+      )}
 
       <Navbar />
 
