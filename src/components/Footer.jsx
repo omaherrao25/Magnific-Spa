@@ -35,7 +35,7 @@ export default function Footer() {
             </div>
 
             <p className="text-[13px] font-bold text-[#1A1A1A]/80 leading-relaxed mb-8 max-w-[280px]">
-              Turpis in eu mi bibendum neque egestas nunc sed blandit libero volutpat sedcras ornare arcu dui vivamus arcu
+              Experience ultimate relaxation and rejuvenation at Magnific Spa. We offer a wide range of luxurious treatments designed to soothe your mind, body, and soul in a tranquil environment.
             </p>
 
 
